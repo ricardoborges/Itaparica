@@ -1,0 +1,73 @@
+﻿<div ng-controller="tipoSolicitacaoCtrl" ng-init="setup()" ng-cloak>
+    <br/>
+    <div class="panel panel-default">
+       
+        <div class="panel-heading">
+            <h4 class="modal-title">Cadastro Tipo de Solicitação</h4>
+        </div>
+            
+        <div class="panel-body">
+            <form>
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                        <label>Descrição</label>
+                        <input type="text" class="form-control" name="Descricao" ng-model="viewdata.tipoSolicitacao.Descricao"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4 col-lg-6">
+                    </div>
+                    <div class="form-group col-md-4 col-lg-3">
+                        <button type="reset" class="btn btn-default form-control">Limpar</button>
+                    </div>
+                    <div class="form-group col-md-4 col-lg-3">
+                        <button type="submit" class="btn btn-primary form-control" ng-click="salvar()">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <hr/>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <h4 class="modal-title">Tipos de Solicitações Ativos</h4>
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>
+                            
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in viewdata.list">
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Descricao}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" ng-click="editar(item)">
+                            <span class="glyphicon glyphicon-pencil"></span> Editar
+                        </button>
+
+                        <button type="button" class="btn btn-danger" ng-click="inativar(item)">
+                            <span class="glyphicon glyphicon-remove"></span> Inativar
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/tipoSolicitacaoCtrl")
+}
+
